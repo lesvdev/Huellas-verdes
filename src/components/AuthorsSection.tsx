@@ -70,13 +70,13 @@ export const AuthorsSection: React.FC = () => {
   {[
     {
       nombre: 'Adriana Carolina Rodríguez Sánchez',
-      foto: '/Autores/Adriana carolina Rodríguez Sánchez.jpeg',
+      foto: '/Autores/Adriana carolina Rodriguez Sanchez.jpeg',
       rol: 'Coordinación de Campo y Registro Botánico',
       descripcion: 'Exploración de campo, levantamiento fotográfico y georreferenciación de especímenes.',
     },
     {
       nombre: 'Bianis Yurley Patiño Santos',
-      foto: '/Autores/Bianis yurley patiño santos.jpeg',
+      foto: '/Autores/Bianis yurley patino santos.jpeg',
       rol: 'Análisis Taxonómico y Clasificación',
       descripcion: 'Clasificación taxonómica de familias botánicas, nombres científicos y condición nativa.',
     },
