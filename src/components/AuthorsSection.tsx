@@ -149,10 +149,11 @@ export const AuthorsSection: React.FC = () => {
                 </span>
               </div>
               <h3 className="text-xl font-extrabold text-stone-900">
-                Docente de Análisis Químico
+                Luz Mery Posada Otalora - Docente de Análisis Químico
               </h3>
               <p className="text-xs sm:text-sm text-stone-700 font-semibold flex items-center gap-1.5">
                 <School className="w-4 h-4 text-[#0e6b38]" />
+                <span>luz.posada@casd.edu.co</span>
                 <span>Institución Educativa CASD José Prudencio Padilla • Área de Ciencias Naturales</span>
               </p>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed pt-1 max-w-3xl">
@@ -176,7 +177,7 @@ export const AuthorsSection: React.FC = () => {
                   Apoyo Tecnológico
                 </span>
                 <span className="text-xs font-bold text-stone-700">
-                  Docente Luis Suárez V.
+                  Docente Luis Enrique Suárez V.
                 </span>
               </div>
               <p className="text-[11px] text-stone-500 mt-0.5">
