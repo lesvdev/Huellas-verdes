@@ -66,13 +66,11 @@ export const AuthorsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
           {[
             {
-              numero: '1',
-              rol: 'Coordinación de Campo y Muestreo',
-              descripcion: 'Registro fotográfico, georreferenciación en humedales y ciénagas de Barrancabermeja.',
-              genero: 'M',
+              nombre: 'Adriana carolina Rodríguez Sánchez',
+              foto: 'public/Autores/Adriana carolina Rodríguez Sánchez.jpeg',              
             },
             {
               numero: '2',
