@@ -66,59 +66,86 @@ export const AuthorsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
-          {[
-            {
-              nombre: 'Adriana carolina Rodríguez Sánchez',
-              foto: 'public/Autores/Adriana carolina Rodríguez Sánchez.jpeg',              
-            },
-            {
-              numero: '2',
-              rol: 'Análisis Botánico y Taxonómico',
-              descripcion: 'Clasificación de familias botánicas, nombres científicos y verificación de condición nativa.',
-              genero: 'F',
-            },
-            {
-              numero: '3',
-              rol: 'Investigación Ecológica y Ecosistémica',
-              descripcion: 'Identificación de servicios ecosistémicos, roles tróficos e interacciones biológicas.',
-              genero: 'M',
-            },
-            {
-              numero: '4',
-              rol: 'Curaduría y Diagramación A5',
-              descripcion: 'Catalogación técnica, estandarización de fichas y estructuración del álbum digital e impreso.',
-              genero: 'F',
-            },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl p-5 border-2 border-emerald-100 hover:border-[#0e6b38] shadow-xs hover:shadow-lg transition-all text-center flex flex-col items-center justify-between group"
-            >
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-100 to-emerald-50 border-2 border-emerald-300 flex items-center justify-center text-2xl mb-3 shadow-inner group-hover:scale-105 transition-transform">
-                {item.genero === 'M' ? '👨‍🎓' : '👩‍🎓'}
-              </div>
-              <div className="space-y-1.5 w-full">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#0e6b38] bg-emerald-100/80 px-2.5 py-0.5 rounded-full inline-block">
-                  Autor / Integrante {item.numero}
-                </span>
-                <h4 className="font-extrabold text-stone-900 text-sm">
-                  Estudiante Investigador/a
-                </h4>
-                <p className="text-[11px] font-bold text-emerald-800 leading-snug">
-                  {item.rol}
-                </p>
-                <p className="text-[11px] text-stone-500 leading-relaxed pt-1">
-                  {item.descripcion}
-                </p>
-              </div>
-              <div className="mt-4 pt-3 border-t border-stone-100 w-full text-[10px] text-stone-500 font-semibold flex items-center justify-center gap-1">
-                <Leaf className="w-3 h-3 text-[#0e6b38]" />
-                <span>CASD JPP - BDP</span>
-              </div>
-            </div>
-          ))}
-        </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
+  {[
+    {
+      nombre: 'Adriana Carolina Rodríguez Sánchez',
+      foto: '/Autores/Adriana carolina Rodríguez Sánchez.jpeg',
+      rol: 'Coordinación de Campo y Registro Botánico',
+      descripcion: 'Exploración de campo, levantamiento fotográfico y georreferenciación de especímenes.',
+    },
+    {
+      nombre: 'Bianis Yurley Patiño Santos',
+      foto: '/Autores/Bianis yurley patiño santos.jpeg',
+      rol: 'Análisis Taxonómico y Clasificación',
+      descripcion: 'Clasificación taxonómica de familias botánicas, nombres científicos y condición nativa.',
+    },
+    {
+      nombre: 'Diego Alejandro Ospina Jiménez',
+      foto: '/Autores/Diego alejandro ospina jimenez.jpeg',
+      rol: 'Investigación Ecológica y de Hábitat',
+      descripcion: 'Evaluación de interacciones biológicas, dispersión de semillas y servicios ecosistémicos.',
+    },
+    {
+      nombre: 'Kareth Tatiana Triana Flórez',
+      foto: '/Autores/Kareth tatiana triana Florez.jpeg',
+      rol: 'Curaduría y Fichas Técnicas A5',
+      descripcion: 'Estandarización de fichas técnicas para herbario y control de calidad de datos biológicos.',
+    },
+    {
+      nombre: 'Khateryn Gicelle Vidal Otálora',
+      foto: '/Autores/Khateryn gicelle vidal otalora.jpeg',
+      rol: 'Documentación y Análisis Fitoquímico',
+      descripcion: 'Recopilación de propiedades medicinales, etnobotánica y química de especies locales.',
+    },
+    {
+      nombre: 'Estudiante Investigador/a', // <-- Aquí puedes colocar el nombre del 6to estudiante
+      foto: '',                           // <-- Aquí va su foto si la subes luego a /Autores/
+      rol: 'Soporte Metodológico y Monitoreo',
+      descripcion: 'Soporte continuo en salidas de campo, conservación del acervo vegetal y divulgación.',
+    },
+  ].map((item, idx) => (
+    <div
+      key={idx}
+      className="bg-white rounded-2xl p-5 border-2 border-emerald-100 hover:border-[#0e6b38] shadow-xs hover:shadow-lg transition-all text-center flex flex-col items-center justify-between group"
+    >
+      {/* FOTO DEL ESTUDIANTE */}
+      <div className="w-28 h-28 rounded-full overflow-hidden border-3 border-[#0e6b38] shadow-md mb-3 group-hover:scale-105 transition-transform bg-stone-100 flex items-center justify-center relative">
+        {item.foto ? (
+          <img
+            src={encodeURI(item.foto)}
+            alt={item.nombre}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-full h-full text-3xl bg-emerald-50 text-[#0e6b38]">
+            🎓
+          </div>
+        )}
+      </div>
+
+      <div className="space-y-1.5 w-full">
+        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#0e6b38] bg-emerald-100/80 px-2.5 py-0.5 rounded-full inline-block">
+          Investigador/a • Integrante {idx + 1}
+        </span>
+        <h4 className="font-extrabold text-stone-900 text-base leading-tight">
+          {item.nombre}
+        </h4>
+        <p className="text-xs font-bold text-emerald-800 leading-snug">
+          {item.rol}
+        </p>
+        <p className="text-xs text-stone-500 leading-relaxed pt-1">
+          {item.descripcion}
+        </p>
+      </div>
+
+      <div className="mt-4 pt-3 border-t border-stone-100 w-full text-[11px] text-stone-500 font-semibold flex items-center justify-center gap-1">
+        <Leaf className="w-3.5 h-3.5 text-[#0e6b38]" />
+        <span>CASD JPP - BDP</span>
+      </div>
+    </div>
+  ))}
+</div>
       </div>
 
       {/* 2. SEGUNDA SECCIÓN: DOCENTE DE LA ESPECIALIDAD DE ANÁLISIS QUÍMICO */}
