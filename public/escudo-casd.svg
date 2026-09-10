@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <!-- Outer circle border and shadow -->
+  <defs>
+    <path id="textCircle" d="M 150, 150 m -115, 0 a 115,115 0 1,1 230,0 a 115,115 0 1,1 -230,0" />
+    <filter id="shieldShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shieldShadow)">
+    <!-- Outer green circle -->
+    <circle cx="150" cy="150" r="142" fill="#0e6b38" stroke="#ffffff" stroke-width="4"/>
+    
+    <!-- Inner concentric circle boundary for text ring -->
+    <circle cx="150" cy="150" r="118" fill="none" stroke="#fcf9de" stroke-width="2"/>
+    <circle cx="150" cy="150" r="88" fill="#fcf9de" stroke="#0e6b38" stroke-width="4"/>
+
+    <!-- Circular text -->
+    <!-- Top arc: INSTITUCIÓN EDUCATIVA CASD • JOSE PRUDENCIO PADILLA -->
+    <path id="topArc" d="M 36,150 A 114,114 0 1,1 264,150" fill="none" />
+    <text font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12.5" font-weight="900" fill="#fcf9de" letter-spacing="1.8">
+      <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+        • INSTITUCIÓN EDUCATIVA CASD • JOSE PRUDENCIO PADILLA •
+      </textPath>
+    </text>
+
+    <!-- Bottom arc: BARRANCABERMEJA -->
+    <path id="bottomArc" d="M 264,150 A 114,114 0 0,1 36,150" fill="none" />
+    <text font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="13" font-weight="900" fill="#fcf9de" letter-spacing="3.5">
+      <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+        • BARRANCABERMEJA •
+      </textPath>
+    </text>
+
+    <!-- Center Arrow / House shape (CASD Emblem) -->
+    <!-- Gable roof top pointing up, eaves, vertical body -->
+    <path d="M 150,68 L 230,138 L 205,138 L 205,216 Q 150,236 95,216 L 95,138 L 70,138 Z" fill="#0e6b38" stroke="#0b542c" stroke-width="2"/>
+
+    <!-- CASD Text inside house emblem -->
+    <g fill="#fcf9de" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="64" text-anchor="middle">
+      <text x="110" y="195" transform="scale(0.9, 1.35) translate(12, -45)">C</text>
+      <text x="135" y="195" transform="scale(0.9, 1.35) translate(16, -45)">A</text>
+      <text x="162" y="195" transform="scale(0.9, 1.35) translate(17, -45)">S</text>
+      <text x="188" y="195" transform="scale(0.9, 1.35) translate(18, -45)">D</text>
+    </g>
+  </g>
+</svg>

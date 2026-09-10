@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Huellas Verdes Database Schema",
+  "entities": {
+    "EspecieFotografia": {
+      "type": "object",
+      "required": ["id", "nombreComun", "nombreCientifico", "especie", "imageUrl"],
+      "properties": {
+        "id": { "type": "string" },
+        "nombreComun": { "type": "string" },
+        "nombreCientifico": { "type": "string" },
+        "especie": { "type": "string" },
+        "esNativa": { "type": "boolean" },
+        "origen": { "type": "string" },
+        "habitat": { "type": "string" },
+        "caracteristicas": { "type": "string" },
+        "importanciaEcologica": { "type": "string" },
+        "orientacion": { "type": "string", "enum": ["vertical", "horizontal"] },
+        "imageUrl": { "type": "string" },
+        "autorFoto": { "type": "string" },
+        "fechaRegistro": { "type": "string" },
+        "lugarBarrancabermeja": { "type": "string" },
+        "destacada": { "type": "boolean" }
+      }
+    },
+    "Configuracion": {
+      "type": "object",
+      "properties": {
+        "shieldUrl": { "type": "string" },
+        "actualizadoEn": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/especies/{especieId}": {
+      "schema": "EspecieFotografia",
+      "description": "Fotografías y fichas técnicas de especies botánicas y ecológicas de Barrancabermeja"
+    },
+    "/config/{configId}": {
+      "schema": "Configuracion",
+      "description": "Configuraciones globales del álbum como escudo institucional"
+    }
+  }
+}

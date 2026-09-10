@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Especies botánicas del álbum Huellas Verdes
+    match /especies/{especieId} {
+      // Cualquier persona en cualquier parte del mundo puede ver y consultar el álbum
+      allow read: if true;
+      // Creación, edición y administración de especies
+      allow write: if true;
+    }
+
+    // Configuración institucional (escudo, etc.)
+    match /config/{configId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Colección de prueba de conexión
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Álbum Digital Huellas Verdes de Barrancabermeja",
+  "description": "Galería y catálogo botánico-ecológico para la presentación, registro y generación de marcos A5 de especies de Barrancabermeja, desarrollado con la especialidad de Análisis Químico CASD JPP - BDP.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
