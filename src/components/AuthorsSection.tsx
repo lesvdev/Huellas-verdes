@@ -66,7 +66,7 @@ export const AuthorsSection: React.FC = () => {
           </p>
         </div>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
   {[
     {
       nombre: 'Adriana Carolina Rodríguez Sánchez',
@@ -99,10 +99,16 @@ export const AuthorsSection: React.FC = () => {
       descripcion: 'Recopilación de propiedades medicinales, etnobotánica y química de especies locales.',
     },
     {
-      nombre: 'Estudiante Investigador/a', // <-- Aquí puedes colocar el nombre del 6to estudiante
-      foto: '',                           // <-- Aquí va su foto si la subes luego a /Autores/
+      nombre: 'Tiffany Zoe Gomez Russo', // <-- Aquí puedes colocar el nombre del 6to estudiante
+      foto: '/Autores/Tiffany Zoe Gomez Russo.jpeg',                           // <-- Aquí va su foto si la subes luego a /Autores/
       rol: 'Soporte Metodológico y Monitoreo',
       descripcion: 'Soporte continuo en salidas de campo, conservación del acervo vegetal y divulgación.',
+    },
+      {
+      nombre: 'Yeris Gabriela Cediel Martinez',
+      foto: '/Autores/Yeris Gabriela cediel Martinez.jpeg',
+      rol: 'Documentación y Análisis Fitoquímico',
+      descripcion: 'Recopilación de propiedades medicinales, etnobotánica y química de especies locales.',
     },
   ].map((item, idx) => (
     <div
