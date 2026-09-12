@@ -93,7 +93,7 @@ export const UploadForm: React.FC<UploadFormProps> = ({ onAddEspecie, onCancel }
     lugarBarrancabermeja: lugarBarrancabermeja.trim() || 'Barrancabermeja',
   };
 
-  // Handle image upload from file or drop
+  // Handle image upload from file or drop with automatic compression
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -106,17 +106,44 @@ export const UploadForm: React.FC<UploadFormProps> = ({ onAddEspecie, onCancel }
     const reader = new FileReader();
     reader.onload = (event) => {
       const result = event.target?.result as string;
-      setImageUrl(result);
-      setErrorMsg(null);
-
-      // Auto detect orientation from image dimensions
+      
+      // Auto compress and optimize image using HTML5 Canvas
       const img = new Image();
       img.onload = () => {
+        // Detect orientation
         if (img.width > img.height) {
           setOrientacion('horizontal');
         } else {
           setOrientacion('vertical');
         }
+
+        // Compress image to maximum 1200px width/height and quality 0.82 JPEG
+        const maxDimension = 1200;
+        let targetWidth = img.width;
+        let targetHeight = img.height;
+
+        if (targetWidth > maxDimension || targetHeight > maxDimension) {
+          if (targetWidth > targetHeight) {
+            targetHeight = Math.round((targetHeight * maxDimension) / targetWidth);
+            targetWidth = maxDimension;
+          } else {
+            targetWidth = Math.round((targetWidth * maxDimension) / targetHeight);
+            targetHeight = maxDimension;
+          }
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.82);
+          setImageUrl(compressedDataUrl);
+        } else {
+          setImageUrl(result);
+        }
+        setErrorMsg(null);
       };
       img.src = result;
     };
