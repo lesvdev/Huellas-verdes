@@ -21,6 +21,7 @@ interface GalleryViewProps {
   onSelectEspecie: (especie: EspecieFotografia) => void;
   onOpenUpload: () => void;
   onOpenIndex: () => void;
+  isSyncing?: boolean;
 }
 
 export const GalleryView: React.FC<GalleryViewProps> = ({
@@ -28,6 +29,7 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
   onSelectEspecie,
   onOpenUpload,
   onOpenIndex,
+  isSyncing = false,
 }) => {
   // Search & Filter State
   const [busqueda, setBusqueda] = useState('');
@@ -144,6 +146,12 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
             <span className="block text-xl font-extrabold text-emerald-300">{porcentajeNativas}%</span>
             <span className="text-[10px] uppercase font-bold text-emerald-200">Nativas B/bermeja</span>
           </div>
+          {isSyncing && (
+            <div className="bg-emerald-900/60 backdrop-blur-xs px-3 py-2 rounded-2xl border border-emerald-400/40 text-center flex items-center gap-1.5 animate-pulse">
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span className="text-[10px] uppercase font-bold text-emerald-200">Sincronizando Nube...</span>
+            </div>
+          )}
         </div>
       </div>
 
