@@ -84,7 +84,13 @@ export const storageService = {
 
       onUpdate(especiesRemotas);
     }, (error) => {
-      console.error('Error en suscripción de Firestore, usando respaldo local:', error);
+      // Si se supera la cuota diaria gratuita de Firestore (Quota limit exceeded) o hay fallo de red,
+      // la aplicación conmuta silenciosamente al catálogo local en caché para que nunca se interrumpa el servicio
+      if (error && error.message && error.message.includes('Quota limit exceeded')) {
+        console.warn('Cuota gratuita diaria de lectura de Firestore alcanzada. Usando catálogo en caché de alta velocidad.');
+      } else {
+        console.warn('Sincronización de Firestore usando respaldo local:', error?.message);
+      }
       onUpdate(this.getLocalEspecies());
     });
 
