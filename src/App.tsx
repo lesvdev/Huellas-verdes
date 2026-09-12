@@ -13,6 +13,7 @@ import { Heart, Sparkles, MapPin, Leaf, Shield, FileSpreadsheet, Cloud } from 'l
 
 export default function App() {
   const [especies, setEspecies] = useState<EspecieFotografia[]>(() => storageService.getLocalEspecies());
+  const [isSyncing, setIsSyncing] = useState<boolean>(true);
   const [currentTab, setCurrentTab] = useState<TabType>('galeria');
   const [selectedEspecie, setSelectedEspecie] = useState<EspecieFotografia | null>(null);
   const [isIndexOpen, setIsIndexOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function App() {
   useEffect(() => {
     const unsubscribe = storageService.subscribeEspecies((remotas) => {
       setEspecies(remotas);
+      setIsSyncing(false);
     });
     return () => unsubscribe();
   }, []);
@@ -102,6 +104,7 @@ export default function App() {
             onSelectEspecie={setSelectedEspecie}
             onOpenUpload={() => setCurrentTab('subir')}
             onOpenIndex={() => setIsIndexOpen(true)}
+            isSyncing={isSyncing}
           />
         )}
 
